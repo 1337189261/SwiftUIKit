@@ -10,7 +10,7 @@ import UIKit
 extension NSMutableParagraphStyle {
     
     @discardableResult
-    func lineHeight(_ height: CGFloat) -> Self {
+    public func lineHeight(_ height: CGFloat) -> Self {
         maximumLineHeight = height
         minimumLineHeight = height
         return self

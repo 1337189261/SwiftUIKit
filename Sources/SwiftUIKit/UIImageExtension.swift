@@ -15,13 +15,13 @@ extension UIImageView {
     }
     
     @discardableResult
-    func contentMode(_ mode: UIView.ContentMode) -> Self {
+    public func contentMode(_ mode: UIView.ContentMode) -> Self {
         contentMode = mode
         return self
     }
     
     @discardableResult
-    func imageColor(_ color: UIColor) -> Self {
+    public func imageColor(_ color: UIColor) -> Self {
         tintColor = color
         image = image?.withRenderingMode(.alwaysTemplate)
         return self

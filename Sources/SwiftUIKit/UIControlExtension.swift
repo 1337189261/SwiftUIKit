@@ -11,30 +11,28 @@ extension UIControl {
     
     private static var _controlActionTargetKey = "_UIControlActionTargetKey"
     
-    private var _targets: NSMutableArray {
+    private var _controlTargets: NSMutableArray {
         getAssociatedObject(key: &Self._controlActionTargetKey, defaultValue: NSMutableArray())
     }
     
-    typealias Action = () -> Void
+    public typealias Action = () -> Void
     
     @discardableResult
-    func action(_ action: @escaping Action, for controlEvents: Event) -> Self {
-        let target = _UIControlActionTarget(action: action, controlEvents: controlEvents)
-        addTarget(target, action: #selector(_UIControlActionTarget.invoke), for: controlEvents)
-        _targets.add(target)
+    public func action(_ action: @escaping Action, for controlEvents: Event) -> Self {
+        let target = _UIActionTarget(action: action)
+        addTarget(target, action: #selector(_UIActionTarget.invoke), for: controlEvents)
+        _controlTargets.add(target)
         return self
     }
     
 }
 
-private class _UIControlActionTarget: NSObject {
+internal class _UIActionTarget: NSObject {
     
     let action: UIControl.Action
-    let controlEvents: UIControl.Event
     
-    init(action: @escaping UIControl.Action, controlEvents: UIControl.Event) {
+    init(action: @escaping UIControl.Action) {
         self.action = action
-        self.controlEvents = controlEvents
     }
     
     @objc func invoke() {

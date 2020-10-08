@@ -6,18 +6,18 @@
 //
 
 import UIKit
-class DCDRoundedCornerView: UIView {
+public class RoundedCornerView: UIView {
     
     private var roundingCorner: UIRectCorner = UIRectCorner.allCorners
     private var cornerRadii: CGFloat = 0
     
-    init(roundingCorner: UIRectCorner, cornerRadii: CGFloat) {
+    public init(roundingCorner: UIRectCorner, cornerRadii: CGFloat) {
         super.init(frame: .zero)
         self.roundingCorner = roundingCorner
         self.cornerRadii = cornerRadii
     }
     
-    override func draw(_ rect: CGRect) {
+    public override func draw(_ rect: CGRect) {
         let bezierPath = UIBezierPath(roundedRect: rect, byRoundingCorners: roundingCorner, cornerRadii: CGSize(width: cornerRadii, height: cornerRadii))
         let maskLayer = CAShapeLayer()
         maskLayer.frame = rect

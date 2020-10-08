@@ -8,7 +8,7 @@
 import Foundation
 
 extension NSObject {
-    func getAssociatedObject<Value>(key: UnsafeRawPointer, defaultValue: Value, policy: objc_AssociationPolicy = .OBJC_ASSOCIATION_RETAIN_NONATOMIC) -> Value {
+    public func getAssociatedObject<Value>(key: UnsafeRawPointer, defaultValue: Value, policy: objc_AssociationPolicy = .OBJC_ASSOCIATION_RETAIN_NONATOMIC) -> Value {
         var value = objc_getAssociatedObject(self, key)
         if value == nil {
             value = defaultValue

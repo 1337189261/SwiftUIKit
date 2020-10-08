@@ -8,11 +8,11 @@
 import UIKit
 
 extension UICollectionView {
-    var flowLayout: UICollectionViewFlowLayout {
+    public var flowLayout: UICollectionViewFlowLayout {
         collectionViewLayout as! UICollectionViewFlowLayout
     }
     
-    var itemSize: CGSize {
+    public var itemSize: CGSize {
         get {
             flowLayout.itemSize
         }
@@ -21,7 +21,7 @@ extension UICollectionView {
         }
     }
     
-    var scrollDirection: UICollectionView.ScrollDirection {
+    public var scrollDirection: UICollectionView.ScrollDirection {
         get {
             flowLayout.scrollDirection
         }
@@ -31,18 +31,18 @@ extension UICollectionView {
     }
     
     @discardableResult
-    func register<T: UICollectionViewCell>(_ cellClass: T.Type) -> Self {
+    public func register<T: UICollectionViewCell>(_ cellClass: T.Type) -> Self {
         register(cellClass, forCellWithReuseIdentifier: String(describing: cellClass))
         return self
     }
     
     @discardableResult
-    func dequeReusableCell<T: UICollectionViewCell>(ofClass cellClass: T.Type, for indexPath: IndexPath) -> T {
+    public func dequeReusableCell<T: UICollectionViewCell>(ofClass cellClass: T.Type, for indexPath: IndexPath) -> T {
         dequeueReusableCell(withReuseIdentifier: String(describing: cellClass), for: indexPath) as! T
     }
     
     @discardableResult
-    func target(_ target: UICollectionViewDelegate & UICollectionViewDataSource) -> Self {
+    public func target(_ target: UICollectionViewDelegate & UICollectionViewDataSource) -> Self {
         delegate = target
         dataSource = target
         return self

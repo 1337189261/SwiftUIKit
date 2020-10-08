@@ -9,36 +9,36 @@ import UIKit
 
 extension UILabel {
     
-    convenience init(_ text: String?) {
+    public convenience init(_ text: String?) {
         self.init(frame: .zero)
         self.text = text
     }
     
-    convenience init(_ attributedText: NSAttributedString?) {
+    public convenience init(_ attributedText: NSAttributedString?) {
         self.init(frame: .zero)
         self.attributedText = attributedText
     }
     
     @discardableResult
-    func font(_ font: UIFont?) -> Self {
+    public func font(_ font: UIFont?) -> Self {
         self.font = font
         return self
     }
     
     @discardableResult
-    func textColor(_ color: UIColor?) -> Self {
+    public func textColor(_ color: UIColor?) -> Self {
         self.textColor = color
         return self
     }
     
     @discardableResult
-    func textAlignment(_ alignment: NSTextAlignment) -> Self {
+    public func textAlignment(_ alignment: NSTextAlignment) -> Self {
         self.textAlignment = alignment
         return self
     }
     
     @discardableResult
-    func lineLimit(_ limit: Int) -> Self {
+    public func lineLimit(_ limit: Int) -> Self {
         numberOfLines = limit
         return self
     }

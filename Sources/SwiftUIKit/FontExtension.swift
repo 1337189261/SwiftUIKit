@@ -8,8 +8,8 @@
 import UIKit
 
 extension String {
-    static let pingFangSCMedium = "PingFangSC-Medium"
-    static let pingFangSCRegular = "PingFangSC-Regular"
-    static let pingFangSCSemibold = "PingFangSC-Semibold"
-    static let pingFangSCBold = "PingFangSC-Bold"
+    public static let pingFangSCMedium = "PingFangSC-Medium"
+    public static let pingFangSCRegular = "PingFangSC-Regular"
+    public static let pingFangSCSemibold = "PingFangSC-Semibold"
+    public static let pingFangSCBold = "PingFangSC-Bold"
 }

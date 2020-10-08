@@ -15,16 +15,16 @@ extension CGPoint {
 }
 
 
-class LinearGradient: UIView {
-    override class var layerClass: AnyClass {
+public class LinearGradient: UIView {
+    public override class var layerClass: AnyClass {
         CAGradientLayer.self
     }
     
-    override var layer: CAGradientLayer {
+    public override var layer: CAGradientLayer {
         super.layer as! CAGradientLayer
     }
     
-    init(colors: [UIColor], locations: [CGFloat], startPoint: CGPoint, endPoint: CGPoint) {
+    public init(colors: [UIColor], locations: [CGFloat], startPoint: CGPoint, endPoint: CGPoint) {
         super.init(frame: .zero)
         layer.colors = colors.map {$0.cgColor}
         layer.locations = locations.map {NSNumber(value: Double($0))}
