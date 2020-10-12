@@ -18,7 +18,7 @@ extension UIControl {
     public typealias Action = () -> Void
     
     @discardableResult
-    public func action(_ action: @escaping Action, for controlEvents: Event) -> Self {
+    public func setAction(_ action: @escaping Action, for controlEvents: Event) -> Self {
         let target = _UIActionTarget(action: action)
         addTarget(target, action: #selector(_UIActionTarget.invoke), for: controlEvents)
         _controlTargets.add(target)

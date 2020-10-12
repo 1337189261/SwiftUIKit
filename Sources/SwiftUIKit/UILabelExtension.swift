@@ -11,7 +11,7 @@ extension UILabel {
     
     public convenience init(_ text: String?) {
         self.init(frame: .zero)
-        self.text = text
+        self.attributedText = NSMutableAttributedString(string: text ?? "")
     }
     
     public convenience init(_ attributedText: NSAttributedString?) {

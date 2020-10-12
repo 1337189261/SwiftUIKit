@@ -21,7 +21,10 @@ extension UIImageView {
     }
     
     @discardableResult
-    public func imageColor(_ color: UIColor) -> Self {
+    public func imageColor(_ color: UIColor?) -> Self {
+        guard let color = color else {
+            return self
+        }
         tintColor = color
         image = image?.withRenderingMode(.alwaysTemplate)
         return self

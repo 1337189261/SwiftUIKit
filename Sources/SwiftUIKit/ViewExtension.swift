@@ -15,6 +15,18 @@ extension UIView {
     }
     
     @discardableResult
+    public func background(_ image: UIImage, contentMode: ContentMode = .scaleAspectFit, color: UIColor? = nil) -> Self {
+        UIImageView(image: image)
+            .addTo(self)
+            .layout { (make) in
+                make.edges.equalToSuperview()
+            }
+            .contentMode(contentMode)
+            .imageColor(color)
+        return self
+    }
+    
+    @discardableResult
     public func cornerRadius(_ radius: CGFloat, maskToBounds: Bool = true) -> Self {
         layer.cornerRadius = radius
         layer.masksToBounds = maskToBounds
@@ -71,6 +83,19 @@ extension UIView {
         layer.shadowRadius = blur / 2
         layer.shadowOpacity = Float(opacity)
         return self
+    }
+    
+    @discardableResult
+    public func padding(_ edgeInsets: UIEdgeInsets) -> UIView {
+        let paddingView = UIView()
+        addTo(paddingView)
+        layout { (make) in
+            make.top.equalToSuperview().offset(edgeInsets.top)
+            make.leading.equalToSuperview().offset(edgeInsets.left)
+            make.bottom.equalToSuperview().offset(-edgeInsets.bottom)
+            make.trailing.equalToSuperview().offset(-edgeInsets.right)
+        }
+        return paddingView
     }
 }
 
